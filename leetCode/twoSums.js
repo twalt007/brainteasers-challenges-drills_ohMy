@@ -1,3 +1,6 @@
+//Difficulty: Easy
+// #1
+
 // Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -81,6 +84,28 @@ var target = 16;
 
 var finalAnswer = twoSum(nums,target);
 console.log(finalAnswer);
+
+
+
+//// and even cleaner:
+
+const twoSum = (nums, target) => {
+    const map = {};
+  
+    for (let i = 0; i < nums.length; i++) {
+      const another = target - nums[i];
+  
+      if (another in map) {
+        return [map[another], i];
+      }
+  
+      map[nums[i]] = i;
+    }
+  
+    return null;
+  };
+
+
 
 
 //Pending Exploratory Questions
