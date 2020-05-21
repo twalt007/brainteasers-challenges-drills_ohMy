@@ -1,3 +1,6 @@
+//Difficulty: Easy
+// #1
+
 // Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -31,16 +34,17 @@
 
     var twoSum = function(nums, target) {
         var returnPair=[];
-        for (var i=0; i < nums.length; i++){
+        for (var i=0, len=nums.length; i < len; i++){
             var firstInt = nums[i];
-            for (var x=i+1; x<nums.length; x++){
-                if (x===i) continue;
-                var secondInt = nums[x];
+            for (var x=i+1; x < nums.length; x++){
+                var secondInt = nums[x];  
                 if (firstInt+secondInt === target){
                     returnPair.push(i, x);
-                }
-            }
-        }
+                    break;
+                } 
+            }          
+        }   
+              
       return returnPair;
     };
 
@@ -54,6 +58,54 @@ console.log(finalAnswer);
 
 
 //Others' Solutions
+
+var nums = [1,7,4,12,39];
+var target = 16;
+
+    var twoSum = function(nums, target) {
+        var firstIndex = new Map();
+        var result = [];
+
+        for (var i=0, len = nums.length; i<len; i++){
+            var num = nums[i];
+            var complement = target - num;
+            
+            if(firstIndex[complement] !== undefined){
+                result.push( firstIndex[complement], i);
+
+                return result;
+            }
+
+            firstIndex[num] = i
+        }
+
+        return result;
+    };
+
+var finalAnswer = twoSum(nums,target);
+console.log(finalAnswer);
+
+
+
+//// and even cleaner:
+
+const twoSum = (nums, target) => {
+    const map = {};
+  
+    for (let i = 0; i < nums.length; i++) {
+      const another = target - nums[i];
+  
+      if (another in map) {
+        return [map[another], i];
+      }
+  
+      map[nums[i]] = i;
+    }
+  
+    return null;
+  };
+
+
 
 
 //Pending Exploratory Questions

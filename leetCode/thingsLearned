@@ -1,0 +1,9 @@
+twoSums: 
+ - new MAP
+ - omplements
+
+reverseInt
+ - x.toString
+ - x.split("")
+ - x.join("")
+ - Number(x)
