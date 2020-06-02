@@ -12,16 +12,22 @@
  * @return {number}
  */
 var reverse = function(x) {
-    var string = x.toString();
-    var array = string.split("");
     var reverseArray = [];
-    for (var i=array.length-1; i>=0; i--){
+    
+    var positive = x*Math.sign(x); 
+    var string = positive.toString();  
+    var array = string.split("");    
+    
+    var i=array.length;
+    while (i--){
         reverseArray.push(array[i]);
-    }
-    var backToString = reverseArray.join("");
-    return Number(backToString);
-};
+    };
 
+    var backToString = reverseArray.join("");
+    var value = Number(backToString);
+    var interger = value * Math.sign(x);
+    return interger;
+}
 //need to add in testing for negative cases, to save the negative rather than tack onto the end
 
 //Growth:
