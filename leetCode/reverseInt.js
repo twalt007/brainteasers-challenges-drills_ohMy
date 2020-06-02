@@ -28,8 +28,21 @@ var reverse = function(x) {
     var interger = value * Math.sign(x);
     return interger;
 }
-//need to add in testing for negative cases, to save the negative rather than tack onto the end
 
 //Growth:
+// check for overflow when larger than 2**31-1
+// reverse() -->
+
+var reverse = function(x) {
+    
+    var positive = x*Math.sign(x); 
+    var reversed = Number(positive.toString().split("").reverse().join(''));
+    var interger = reversed * Math.sign(x);
+
+    var max = Math.pow(2,31);    
+    if (interger > max-1 || interger < -max ) return 0; //check for if positive or negative overflows limit
+    return interger;
+}
+
 
 // what is going on with "bit" - is there potential to us this/convert this and return in a more simple way?
