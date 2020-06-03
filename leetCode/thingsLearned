@@ -7,3 +7,4 @@ reverseInt
  - x.split("")
  - x.join("")
  - Number(x)
+ - Math.sign(x)
