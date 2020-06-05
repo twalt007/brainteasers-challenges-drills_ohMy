@@ -45,11 +45,27 @@ var isPalindrome = function(x) {
 //would need a way to deal with the case for when evern vs odd
 //this is way too messy
 
+
+
+// % 10  --> will return last digit
+//can recieve all digits this way, and cobine back up
+
+//check for positive/negative
+//do while need a loop to consequtively get all intergers
+//store intergers... no.  perform math.  last digit *10 plus nex digit, keep going.
+//at end, compare beginning with result
+
 var isPalindrome = function(x) {
-    var reverse = Number(x.toString().split('').reverse().join(''));
-    if (x===reverse){
-        return true
-    }else {
-        return false
-    }
+    if (x >= 0 ){
+        var reverse = 0;
+        var nextRound = x;
+        do {
+            //find last digit and save to number
+            var lastDigit = nextRound%10;
+            reverse = reverse*10 + lastDigit;
+
+            nextRound = (nextRound-lastDigit)/10
+        }while (nextRound);
+        if (x === reverse )return true
+    }else return false
 };
