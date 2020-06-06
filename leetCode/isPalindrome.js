@@ -60,12 +60,35 @@ var isPalindrome = function(x) {
         var reverse = 0;
         var nextRound = x;
         do {
-            //find last digit and save to number
             var lastDigit = nextRound%10;
             reverse = reverse*10 + lastDigit;
 
             nextRound = (nextRound-lastDigit)/10
         }while (nextRound);
-        if (x === reverse )return true
-    }else return false
+
+        if (x === reverse ){
+            return true
+        }else {
+            return false
+        }
+    }else{
+        return false
+    }
 };
+
+
+
+//leet code example.  same as above, but more efficient because less variable saving:
+function isPalindrome(x) {
+    if (x < 0) return false;
+    if (x < 10) return true;
+    if (x % 10 === 0) return false;
+  
+    let rev = 0;
+    while (rev < x) {
+      rev *= 10;
+      rev += x%10;
+      x = Math.trunc(x/10);
+    }
+    return rev === x || Math.trunc(rev/10) === x;
+  }
