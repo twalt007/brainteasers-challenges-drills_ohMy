@@ -112,21 +112,61 @@ var romanToInt = function(s) {
 
 //imrpve code
 
+//-> use map to eliminate need to save variables
+//-> no need to converting to lowerCase because defined as always upper for roman numbers; except in bullets this is standard
+//-> check if s exists, this way can eliminate wasted time if doens't need to run.
+// MY update, over and above example:  use "while (i--)" because belive this can eliminate one line of code
+// ----> MY update doesn't work great, because will result in a negative number for values like IV, IX
+
 var romanToInt = function(s) {
     if (!s || s === 0){
         return 0;
     };
 
-    var sLow = s.toLowerCase();
+    var map = new Map([['I', 1],['V',5],['X',10],['L',50],['C',100],['D',500],['M',1000]]);
 
-    var map = new Map([['i', 1],['v',5],['x',10],['l',50],['c',100],['d',500],['m',1000]);
+    let i = s.length;
+    let result=0;
 
-    let i = sLow.length-1;
-    let result = map.get(sLow[i]);
-
-    while (i--)
+    while (i--){
+        var cur = map.get(s[i]);
+        var prev = map.get(s[i-1]);
+        if(cur > prev){
+            result-=cur;
+        }else{
+            result+=cur;
+        }
+    }
+    return result;
 };
 
-xxx
-0 1 2
-1
+
+
+
+
+const romanToInt = s => {
+  if (!s || s.length === 0) {
+    return 0;
+  }
+
+  const map = new Map([['I', 1], ['V', 5], ['X', 10], ['L', 50], ['C', 100], ['D', 500], ['M', 1000]]);
+
+  let i = s.length - 1;
+  let result = map.get(s[i]);
+
+  while (i > 0) {
+    const curr = map.get(s[i]);
+    const prev = map.get(s[i - 1]);
+
+    if (prev >= curr) {
+      result += prev;
+    } else {
+      result -= prev;
+    }
+
+    i--;
+  }
+
+  return result;
+};
+
