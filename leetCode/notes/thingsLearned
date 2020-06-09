@@ -1,0 +1,18 @@
+twoSums: 
+ - new MAP
+ - Complements
+
+reverseInt
+ - x.toString
+ - x.split("")
+ - x.join("")
+ - Number(x)
+ - Math.sign(x)
+ - Number(x.toString().split('').reverse().join(''))
+
+ isPalindrome
+ - x%10 to get the last integer in a number
+ - Math.trunc(x/10) gets rid of all decimal places
+
+ romanToInteger
+  - map.get(s[i])
