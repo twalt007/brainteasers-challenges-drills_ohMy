@@ -10,36 +10,27 @@
 
 //could do with a loop that contans switch cases and then removes last interger., while storing the previous value
 //for (val.lenght){
-    MMCMXCXXVII
-    2
-    7
-    17
-    27
-    127
-    117
+//     MMCMXCXXVII
+//     2
+//     7
+//     17
+//     27
+//     127
+//     117
 
 
-    MCMXCIV
-    5-1
-    4
-    104-10
-    94
-    1094-100
-    994
-    1994
+//     MCMXCIV
+//     5-1
+//     4
+//     104-10
+//     94
+//     1094-100
+//     994
+//     1994
 
-    need way to store and to compare
+//     need way to store and to compare
     
-    var prev value: 
-    switch () {
-        case value:
-            
-            break;
-    
-        default:
-            break;
-    }
-}
+
 
 
 /**
@@ -53,11 +44,11 @@ var romanToInt = function(s) {
         var current = array[i];
         var secondToLast = array[i-1];
         if (last === secondToLast) addVaule();
-        else continue doing Worker;
+        // else continue doing Worker;
     }
-    keep removing intergers until different one recieved  (var current, var last)
-    up to that point add the value specified  (switch)
-    then if different check to see how t compares
+    // keep removing intergers until different one recieved  (var current, var last)
+    // up to that point add the value specified  (switch)
+    // then if different check to see how t compares
 };
 
 var romanToInt = function(s) {
