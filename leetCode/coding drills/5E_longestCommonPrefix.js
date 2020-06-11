@@ -118,3 +118,74 @@ var longestCommonPrefix = function(strs) {
 // 2. how  to stop a function/break out of it
 // 3. learn to identify this sort of two loop 
 // 4. learn how to avoid using two loops
+
+//actual code: 
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+
+    var result = "";
+    var counter = 0;
+    var curr = strs[0][counter];
+    var test = () => {
+        for (i=1;i<strs.length;i++){
+        var comp= strs[i][counter];
+        var failed = false;
+            if(comp !== curr){
+                failed = true;
+                return;
+            } 
+        }
+        if (!failed){
+            result += curr;
+            counter++
+        }        
+    }
+
+    do {
+        test();
+    } while(counter < strs[0].length-1);
+    
+    return result;   
+};
+
+
+
+current trouhbleshooting:
+var longestCommonPrefix = function(strs) {
+
+    
+    var result = "";
+      var counter = 0;
+      var curr = strs[0][counter];
+      var test = function() {
+          for (i=1;i<strs.length;i++){
+          var comp= strs[i][counter];
+              if(comp !== curr){
+                                        console.log('did I get reached -1? result', result)
+                  return;
+              } 
+              result += curr;
+                      console.log('did I get reached? result', result)
+  
+          }
+          counter++
+                            console.log('did I get reached 2? counter', counter)
+  
+      }
+     
+    do {
+          test();
+          console.log('did I get reached 2.4? result counter', result, counter);
+      } while(counter < strs[0].length-1);
+      console.log('did I get reached 3?result counter', result, counter);
+  
+      return result; 
+               
+  
+  };
+  
+    
+    longestCommonPrefix(['string', 'strung', 'stroo']);
