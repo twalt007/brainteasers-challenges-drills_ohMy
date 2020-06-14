@@ -151,41 +151,63 @@ var longestCommonPrefix = function(strs) {
     return result;   
 };
 
-
-
-current trouhbleshooting:
+//fiexed solution:
 var longestCommonPrefix = function(strs) {
 
-    
     var result = "";
-      var counter = 0;
-      var curr = strs[0][counter];
-      var test = function() {
-          for (i=1;i<strs.length;i++){
+    var counter = 0;
+    var match = true;
+
+    var test = function() {
+        for (i=1;i<strs.length;i++){
           var comp= strs[i][counter];
-              if(comp !== curr){
-                                        console.log('did I get reached -1? result', result)
-                  return;
-              } 
-              result += curr;
-                      console.log('did I get reached? result', result)
-  
-          }
-          counter++
-                            console.log('did I get reached 2? counter', counter)
-  
-      }
-     
-    do {
-          test();
-          console.log('did I get reached 2.4? result counter', result, counter);
-      } while(counter < strs[0].length-1);
-      console.log('did I get reached 3?result counter', result, counter);
-  
-      return result; 
-               
-  
-  };
-  
+          if(comp !== curr){
+              match = false;
+              return;
+          } 
+        }
+        if (match){
+            result += curr;
+            counter++;
+        }        
+    }
     
-    longestCommonPrefix(['string', 'strung', 'stroo']);
+    if(strs[0]===undefined){
+      return result;
+    }
+    if(strs[0] && !strs[1]){
+        result = strs[0];
+      console.log(result)
+      return result;
+    } 
+    do{
+      var curr = strs[0][counter];
+      test()
+    }
+    while(strs[0] && match && counter < strs[0].length-1 )
+  return result;   
+};
+
+  
+  longestCommonPrefix(['string', 'stlung', 'stroo']);
+
+
+
+
+  //issues: 
+//    - considiotnality with !failed not accurate
+//    - ***scoping off for counter incrementation***
+//          - when Var curr was at the head of the function, its value got assigned the first time, and just because 'counter' got reassaigned did not mean that curr's value was looked up each time
+//          - as such its value didn't change like we needed it to until we put it inside the 'while' loop
+//          - result and counter are both fine because with each for loop we are reassigning the values in these variables, which are then referenced and looked up freshly each time they are used
+//    - issues with if check - needed to chagne to default true/fales plus a return statement, otherwise result would update even if one of the strings in the array did not match but others after it did
+//    - was able to move 'match' to outside for loop and add conditional to while loop.  this stopped the while loop from continuing once a negatve was found
+//    - needed to account for fringe cases: strs=[], strs=['a']
+
+
+
+
+
+
+
+    
