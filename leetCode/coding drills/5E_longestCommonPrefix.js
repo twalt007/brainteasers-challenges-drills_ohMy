@@ -172,19 +172,14 @@ var longestCommonPrefix = function(strs) {
         }        
     }
     
-    if(strs[0]===undefined){
+    if(strs.length === 0){
       return result;
     }
     if(strs[0] && !strs[1]){
-        result = strs[0];
-      console.log(result)
+        result = strs;
       return result;
-    } 
-    do{
-      var curr = strs[0][counter];
-      test()
     }
-    while(strs[0] && match && counter < strs[0].length-1 )
+    while(strs.length && match && counter+1 <= strs[0].length-1 )
   return result;   
 };
 

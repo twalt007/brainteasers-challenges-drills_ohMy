@@ -1,0 +1,23 @@
+lifecycle:
+
+1. constructor()
+2. getDerivedStateFromProps()
+3. Render()
+4. ***ComponentDidMount()
+5. shouldComponentUpdate()
+6. ***ComponentDidUpdate()
+7. ComponentWillUnmount()
+
+8. getDerivedStateFromError()
+9. ComponentDidCatch()
+10. ForceUpdate()
+
+
+Depreciated:
+5. ComponentWillMount
+6. ComponentWillUpdate
+
+Primary Lifecycle Hook Methods:
+1. ComponentDidMount()
+2. ComponentDidUpdate()
+3. ComponentWillUnmount()
