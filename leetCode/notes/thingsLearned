@@ -16,3 +16,9 @@ reverseInt
 
  romanToInteger
   - map.get(s[i])
+
+longestCommonPrefix
+ - variable scoping in loops
+ - varibale assignment/reassignment
+ - return exits function
+ - break exists current loop/switch statement

@@ -1,0 +1,6 @@
+javascript:
+
+global and local
+anything outside of a function = global scope
+within a function = local scope
+funciton within a function  = nested scope
