@@ -1,0 +1,22 @@
+Nature:
+like array, can iterateover letters  -->   str = 'example';   str[3] = 'm'
+
+Finding:
+1. indexOf          var pos = str.indexOf('text');
+2. lastIndexOf      var pos = str.lastIndexOf('text', [starting positions]);    **searches backward!!
+3. search           similar to lastIndexOf, but can take regex; can't tak starting position
+
+Extracting:
+1. slice            var x = str.slice(start, end)
+2. substring        var x = str.substring(start,end)   diff: can't take negative numbers; 
+3. substr           var x = str.substr(start, length)  diff: length
+for all if omit second param will take to end
+
+Useful:
+1. trim             var x = str.trim();  removes white space!!
+2. replace          var x = str.replace([regex expression]);  can also be  used to remove white space (depending on browser version)
+
+
+Converting:
+1. Split            var newArray = str.split("");  -->  need to specify on what character to split at!!! wil remove that character and return array with inbetween things, including comas and spaces.  so, most of the time we will want (" ") is a sentence, or (",") if sord separated by a comma
+2. concat           var phrase = arr.concat()  whatever we put inbetween the () is what will go between the chaacters.  so typically will want (" ")
