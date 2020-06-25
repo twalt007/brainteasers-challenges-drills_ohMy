@@ -37,3 +37,9 @@ if loop iterations over 1,000 --> Duffs Device
 
 https://www.oreilly.com/library/view/high-performance-javascript/9781449382308/ch04.html
 https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript
+
+
+
+forEach() vs Map()
+forEach does not return anything; map returns an array;
+neither mutate the originl array, UNLESS a callback is used for forEach; map still does not

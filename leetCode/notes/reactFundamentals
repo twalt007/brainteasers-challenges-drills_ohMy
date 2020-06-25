@@ -6,7 +6,7 @@ lifecycle:
 4. ***ComponentDidMount()
 5. shouldComponentUpdate()
 6. ***ComponentDidUpdate()
-7. ComponentWillUnmount()
+7. ***ComponentWillUnmount()
 
 8. getDerivedStateFromError()
 9. ComponentDidCatch()

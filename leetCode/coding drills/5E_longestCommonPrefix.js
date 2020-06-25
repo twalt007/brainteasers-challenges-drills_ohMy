@@ -220,4 +220,54 @@ public String longestCommonPrefix(String[] strs) {
 // Time complexity : O(S)O(S) , where S is the sum of all characters in all strings. In the worst case there will be nn equal strings with length mm and the algorithm performs S = m \cdot nS=m⋅n character comparisons. Even though the worst case is still the same as Approach 1, in the best case there are at most n \cdot minLenn⋅minLen comparisons where minLenminLen is the length of the shortest string in the array.
 // Space complexity : O(1)O(1). We only used constant extra space.
 
+//try using indexOf method***  --> this will be like the 'horizontal method'  given on leetcode
+
+//1. find shared prefix between string 1 and string 2
+//   ///  while (indexOf is false) , keep reducing item searched for;
+// 2. once returned, use this to repeat on other items
+//return final piece
+
+//save return value
+//get rid of exceptions
+//comparison value
+//while loop
+// /// work to reduce comparison value - pop; --> increase; more likely that will be smaller than longer
+// /// change comparison value - pop, slice, 
+
+
+//know that will need to compare some value to another value multiple times
+//comparison prefix
+//compare to next item in array
+//while the item cannot be found, (so IndexOf is returning 0 as the starting position), keep reducing the prefix
+
+
+
+var longestCommonPrefix = function(strs) {
+
+    var prefix = "";
+    
+    var compare = function(current, versus){
+        var versus = versus;  //do I have to define this?
+        while(current.indexOf(versus)!==0 && versus){
+            versus.slice(0,-1);
+        }
+        return versus;
+    }
+    
+    for(var i=0; i < strs.length; i++){
+        var versus = 
+    }
+
+
+    if(versus){
+        prefix=versus
+    }
+
+    return prefix;
+};
+
+
+var = str.indexOf(value)
+
+
     
