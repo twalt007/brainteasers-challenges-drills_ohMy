@@ -245,6 +245,7 @@ public String longestCommonPrefix(String[] strs) {
 var longestCommonPrefix = function(strs) {
 
     var prefix = "";
+    var versus = strs[0];
     
     var compare = function(current, versus){
         var versus = versus;  //do I have to define this?
@@ -255,7 +256,8 @@ var longestCommonPrefix = function(strs) {
     }
     
     for(var i=0; i < strs.length; i++){
-        var versus = 
+        var current = strs[i+1];
+        
     }
 
 
