@@ -32,3 +32,12 @@ var exObj = {
 // 3. exObj["key4"].key4_3[3].item4_4_3 = ["item4_4_1", "item4_4_2", 443]
 // 4. exObj["key4"]["key4_3"[3]].item4_4_3 = ["item4_4_1", "item4_4_2", 443]
 // 5. if using a variable to reference, then do not need quotes inside brackets.  ex:  exObj["key4"][varKey4_3[3]].item4_4_3
+
+
+/////Checking for Existence
+1. Key in Object:
+    a. if ('undefined' !== typeof Obj['prop']){do Something}    speed=6
+    b. if ('prop' in Obj){do something}                         speed=3
+    c. if (Obj.hasOwnProperty('prop')){do Something}            speed=4
+
+https://andrew.hedges.name/experiments/in/

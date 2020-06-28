@@ -49,6 +49,9 @@ VALUES [new values]    //   SELECT [different columns/values FROM different tabl
  SELECT:
   - DISTINCT
   - TOP/LIMIT @ end
+  - MIN([colname])/MAX([colname])
+  - COUNT/AVE/SUM
+  - AS
 
  FROM:
   - ORDER BY
@@ -56,5 +59,6 @@ VALUES [new values]    //   SELECT [different columns/values FROM different tabl
  WHERE: (conditional)
   - AND, OR, NOT 
   - LIMIT 
+  - IS NULL / IS NOT NULL
  
  Order BY
