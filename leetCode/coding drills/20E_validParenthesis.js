@@ -62,12 +62,13 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    var isValid = true;
-    if (!s.length || !s.length%2 === 0 ){
-        isValid = false;
-        return isValid;
+    var valid = true;
+  
+
+    if (!s.length || s.length%2 !== 0 ){
+        valid = false;
+        return valid;
     }
-    console.log("do I run?")
     var halfwayIndex = s.length/2-1;
     var pairs = {
         '(':')',
@@ -79,14 +80,32 @@ var isValid = function(s) {
         let currentVal = s[i];
         let compareVal = s[(s.length-1)-i];
         if (!pairs[currentVal]){   //--> may need to change to if !(currentVal in pairs)
-            isValid = false;
+            valid = false;
+            return valid;
         } 
-        console.log("do I run 2?")
-        if (pairs[currentValue] !== compareVal){
-            isValid = false;
+        if (pairs[currentVal] !== compareVal){
+            valid = false;
         }
-        console.log("do I run 3?")
     }
-
-    return isValid;    
+    return valid;    
 };
+
+
+/////MISTAKES/Learning opportunities!:
+// 1.  SLIP UP:         if (!s.length || !s.length%2 === 0 ){
+//     SHOULD BE:       if (!s.length || s.length%2 !== 0 ){
+// 2.  SLIP UP:         if (!pairs.currentVal)
+//     SHOULD BE:       if (!pairs[currentVal])
+
+//solved for case: palindrome.  forgot about cases where brackets closed immediately after --> (){}[]
+///             \\\\/\/\////
+
+///need to modify function --> 
+checks for what is not allowed:
+ 
+{{(})}}
+(( { ) } )
+
+rule: we can't have an ending bracket to a different type if the first type is not yet closed.  
+
+
