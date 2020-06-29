@@ -22,3 +22,7 @@ longestCommonPrefix
  - varibale assignment/reassignment
  - return exits function
  - break exists current loop/switch statement
+
+ validParenthesis
+ - remember 'return' exits function
+ - don't forget to solve for all cases
