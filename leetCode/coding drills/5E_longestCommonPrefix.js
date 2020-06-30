@@ -241,35 +241,30 @@ public String longestCommonPrefix(String[] strs) {
 //while the item cannot be found, (so IndexOf is returning 0 as the starting position), keep reducing the prefix
 
 
+//attempting from memory
+
+//check if exists
+//prefix = initial value 
+//for each item in the array, will check if the first one exists, if not, we'll go and reduce the first one by 1
+
 
 var longestCommonPrefix = function(strs) {
+    if (!strs.length){
+        return ''
+    };
 
-    var prefix = "";
-    var versus = strs[0];
-    
-    var compare = function(current, versus){
-        var versus = versus;  //do I have to define this?
-        while(current.indexOf(versus)!==0 && versus){
-            versus.slice(0,-1);
+    var prefix=strs[0];
+
+    for (var i=1; i< strs.length; i++ ){
+        while (strs[i].indexOf(prefix)!=0){
+            prefix = prefix.slice(0,-1)
         }
-        return versus;
-    }
-    
-    for(var i=0; i < strs.length; i++){
-        var current = strs[i+1];
-        
-    }
-
-
-    if(versus){
-        prefix=versus
     }
 
     return prefix;
-};
+}
 
-
-var = str.indexOf(value)
-
+//things I'm foggy about:
+// - will prefix really be updated by the loop?
 
     
