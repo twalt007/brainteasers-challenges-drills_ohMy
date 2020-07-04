@@ -111,3 +111,40 @@ const twoSum = (nums, target) => {
 //Pending Exploratory Questions
 //~~Is there a better lloop than a for loop?  
 //~~for while?
+
+
+
+//recode challenge - can I repeat what I learned?  7/3/2020
+
+//check if have nums, target
+//loop over each value, 
+//check if map has inverse value, if not, store into map
+//if does, then return the key
+
+
+var nums = [1,7,4,12,39];
+var target = 16;
+
+
+var twoSum = function(nums, target) {
+    if (!nums){
+        return []
+    };
+
+    var values = new Map;
+
+    for (i=0, len=nums.length; i<nums.length; i++){
+
+        var inverse = target-nums[i];
+        if(values[inverse]!==undefined){   //or if (inverse in values)
+            var inverseIndex=values.get(inverse);
+            return [i,inverseIndex];
+        }
+        values.set(nums[i], i);
+    }
+    return [];    
+}
+
+
+//reminders about map:
+//  set, get, 
