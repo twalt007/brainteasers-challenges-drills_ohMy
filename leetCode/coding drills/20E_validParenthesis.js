@@ -91,6 +91,7 @@ var isValid = function(s) {
 };
 
 
+
 /////MISTAKES/Learning opportunities!:
 // 1.  SLIP UP:         if (!s.length || !s.length%2 === 0 ){
 //     SHOULD BE:       if (!s.length || s.length%2 !== 0 ){
@@ -109,3 +110,101 @@ checks for what is not allowed:
 rule: we can't have an ending bracket to a different type if the first type is not yet closed.  
 
 
+solve based upon some counter scenarios
+not acceptable:
+ ){},  {}(          1. if ends or starts with wrong typeof, throw out
+(( { ) } )          2. if different closing type before own group is closed, not
+((){ )              3. solution - could asign a map that counts to see if equal
+
+    {
+        (:2,
+        ):1,
+        {:1,
+        }: ,
+        [: ,
+        ]: 
+    }
+    check if opening bracket if yes, procceed.    start on opening.
+    for each item,
+        1. count up map
+        2. check if same value as before or not
+            a. if not, then check to see if it is thhe closing pair
+                a. if yes, then count up map
+                    a.//should stop when the numbers are equal. if not, then there is a problem
+                b. if no then check thaht it is opening bracket.length
+        
+        
+                evermind all the above.  my origional solution sould be ok, just need to add a bit on. 
+                every acceptable set will always be a palindrome.  the only issue is we need a way to account for 
+                {}[]() type cases.length
+                     - to do this, we need a way to know once  palindrome is created, and to stop thhe logic and start it again
+    
+
+acceptable:
+{{{(( ))}}}  
+[{()}]
+{}[]()
+{{[]}}{}
+not acceptable:
+
+check: is it the same as before? if pageYOffset, then can continue
+is it 
+
+
+
+//solution from before is OK.  but I need to add in a way to identify and break up sets
+//define a set:
+    //  - opening braket * x
+    //  - closing braket * y
+    //  if x = y, then we will define this as a set
+    //  if cant get this, then know that we can throw out
+
+    psudeo:  
+        conter to track how many opening brackets until have closing bracket.
+        continue until a closing bracket reached 
+        define this as halfway 
+        take items from string up to index+1*2; this is a 
+        
+    slice each set out of the array and 'eat' through it
+    
+
+//this will go before we define what the halfway point is
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    var valid = false;
+  
+
+    if (!s.length || s.length%2 !== 0 ){
+        return valid;
+    }
+    
+    var counter = 0;
+  
+    while (s[i] === '('|| s[i]=== '{' || s[i]=== '['){
+        counter ++;
+    }
+
+
+    var halfwayIndex = s.length/2-1;
+    var pairs = {
+        '(':')',
+        '{':'}',
+        '[':']'
+    }
+
+    for (let i = 0; i<=halfwayIndex; i++){
+        let currentVal = s[i];
+        let compareVal = s[(s.length-1)-i];
+        if (!pairs[currentVal]){   //--> may need to change to if !(currentVal in pairs)
+            return valid;
+        } 
+        if (pairs[currentVal] !== compareVal){
+        }
+    }
+    valid = true;
+    return valid;
+};
