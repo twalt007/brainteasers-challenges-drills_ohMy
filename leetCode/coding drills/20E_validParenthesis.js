@@ -208,3 +208,50 @@ var isValid = function(s) {
     valid = true;
     return valid;
 };
+
+new approach:
+after using hint -->
+
+// remove each valid parenthesis from the set as we come to it
+
+// loop through
+// remember previous entry
+// if next entry is the closing braket of that type, then remove the pair; start over
+// if not, then keep going
+
+// check at end - if othing remaining, then return true
+// else, false
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    var pairs = {
+        '[':']',
+        '{':'}',
+        '(':')'
+    }
+
+    var curS = s;
+    while (curS.length){
+        for (i=1; i<curS.length; i++){
+            var previous = curS[i-1];
+            var current = curS[i];
+            if (pairs[previous] === current){
+                curS.slice(i-1,i+1);
+                return;
+            } else if (i=curS.length-1){
+                curS = false;
+            }
+        }
+    }
+    switch (curS){
+        case '': {
+            return true
+        };
+        case false: {
+            return false
+        }
+    }
+}
