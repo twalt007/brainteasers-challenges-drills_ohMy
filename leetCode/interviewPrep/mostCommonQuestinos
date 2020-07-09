@@ -1,0 +1,49 @@
+CSS
+1. What is the box model:
+    wraps all elements
+    margin, border, padding, content
+    box-sizing: content-box vs border-box (smaller)
+2. CSS selectors
+    1. order  (top-bottom)
+    2. element
+    3. class
+    4. id
+    5. combination
+    6. !important
+    7. inline
+3. align content
+    <div class="outer" >
+        <div class="inner" > </div>
+    </div>
+    1. traditional css  
+        A: horizontal only
+            .outer{
+                position: relative;  (not neccessary)
+            }
+            .inner{
+                position: relative;   (not neccessary)
+                margin: auto; 
+                }
+            other: margin-left, margin-right;
+        B:  Vertical also
+            .outer{
+                position: relative;
+            }
+            .inner{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            other: padding-top, padding-bottom;
+        c: Float
+        D: .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+4. What is the difference in positioning?
+    a. absolute - positioned at where ot should be witin the last positionined parent
+    b. relative - positionied as per specified with respect to last positioned parent.  taken out of document flow
+    c. fixed - out of document flow, positioned where we tell it on page
+    d. static - default. set to do nothing, just obey the normal flow
