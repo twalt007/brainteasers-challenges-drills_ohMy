@@ -1,0 +1,19 @@
+1. let vs var vs cosnt
+ - let/const - ES6 --> 2015; prevalent 2018; let still not universal
+ - scoping 
+    - var = functional
+    - let/const = block scope  (within the {} --> if statements var still accessible everywhere outside; const/let constrained; functions constrain all)
+ - hoisting - var yes, let/const no 
+    - var can be assigned to the window opbject; let/const no
+ - redefinable - var yes, let yes, const no.  but - properties/content within const CAN be changed
+ - issues with var - can be accidentally reassigned, especially if you are using an add-on, and they have the same variable 
+ - issues with let - can be accidentally reassigned within your scope.
+ - best to use const unless you have a reason to reassign a value, rather than just change it
+
+2. hoisting  (with var, named functions)
+ - everything declared with var/ function
+    function example () = 
+ - variable used/consoled before defined below - will not return error, but only undefined
+ - named function also hoisted --> can slow down code
+ 
+

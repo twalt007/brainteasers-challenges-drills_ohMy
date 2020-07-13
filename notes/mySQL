@@ -1,0 +1,64 @@
+SQL Structured Query Language --> Relational Datababase Management System RDBMS
+
+Database > Table > Data Sets > Index
+
+Database Manipulation:
+ - CREATE DATABASE - creates a new database
+ - ALTER DATABASE - modifies a database
+
+Table Manipluation:
+ - CREATE TABLE - creates a new table
+ - ALTER TABLE - modifies a table
+ - DROP TABLE - deletes a table
+
+Data Entry Manipulation:
+ - SELECT - extracts data from a database
+ - UPDATE - updates data in a database
+ - DELETE - deletes data from a database 
+ - INSERT INTO - inserts new data into a database
+ 
+Index Manipulation:
+ - CREATE INDEX - creates an index (search key)
+ - DROP INDEX - deletes an index
+
+
+ Note Commonalities:
+ Create, Drop, Alter
+
+ Can create and drop databases, tables, indexs; 
+ can't drop a database however, can only clean it out
+ can't alter an index, because only one.  just remove and set to anther with create
+ create is not used for data entry, but instead insert.  because we dont create data, we only add it to a table
+
+//////////////////
+COMMANDS
+//////////////////
+Basic Structure:
+
+[DATA MANIPLUATION]
+FROM [table name]
+WHERE [condition]
+[ON] 
+
+INSERT INTO [table name(specific columns, columns, columns)]
+VALUES [new values]    //   SELECT [different columns/values FROM different table and cnditions for getting data]
+
+//////////////////
+ Extras:
+
+ SELECT:
+  - DISTINCT
+  - TOP/LIMIT @ end
+  - MIN([colname])/MAX([colname])
+  - COUNT/AVE/SUM
+  - AS
+
+ FROM:
+  - ORDER BY
+
+ WHERE: (conditional)
+  - AND, OR, NOT 
+  - LIMIT 
+  - IS NULL / IS NOT NULL
+ 
+ Order BY

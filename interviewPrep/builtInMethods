@@ -1,0 +1,5 @@
+accessing and storing data:
+https://www.w3resource.com/javascript-exercises/javascript-object-exercises.php
+
+Object.keys(object);
+for (var key in object);

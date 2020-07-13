@@ -1,0 +1,102 @@
+<!-- Create a Prgress bar that fills
+
+Javascript method -->
+
+
+<!-- <!DOCTYPE html >
+<html>
+    <head>
+        <title>Progress Bar Drill</title>
+        <meat></meat>
+        <style>
+            .bar-container{
+                height: 15px;
+                width: 300px;
+                border: 2px solid grey;
+                border-radius: 2px;
+            }
+            .bar{
+                height: 100%;
+                width: 0%;
+                background-color: green;
+            }
+            .button{
+                margin-top: 20px;
+            }
+        </style>
+        <link>
+        <script>
+            var fillBar = function(seconds){
+                var bar = document.querySelector(".bar");
+                let atPercent = 0;
+                const interval = setInterval( () => {
+                    atPercent ++;
+                    bar.style.width = atPercent + '%';
+                    if (atPercent >= 100) clearInterval(interval);
+                }, (seconds*1000)/100);
+                
+            }
+        </script>
+    </head>
+    <body>
+        <div class="bar-container">
+            <div class="bar"></div>
+        </div>
+        <button class="button" onClick="fillBar(2)">Start</button>
+    </body>
+</html> -->
+
+
+
+
+lessons learned:
+ - clearInterval --> needs to take the interval funciton variable
+ - need to set width to 0% at the ebginning, otherwise initializes at full
+ - querySelector
+ - need to query element, then style.property  
+ - setInterval takes function first, and then miliseconds
+
+
+ <!DOCTYPE html >
+<html>
+    <head>
+        <title>Progress Bar Drill</title>
+        <meat></meat>
+        <style>
+            .bar-container{
+                height: 15px;
+                width: 300px;
+                border: 2px solid grey;
+                border-radius: 2px;
+            }
+            .bar{
+                height: 100%;
+                width: 0%;
+                background-color: green;
+            }
+            .button{
+                margin-top: 20px;
+            }
+        </style>
+        <link>
+        <script>
+            var fillBar = function(seconds){
+                var bar = document.querySelector(".bar");
+                bar.style.transition = `${seconds}s width`;
+                bar.style.width = '100%';                
+            }
+        </script>
+    </head>
+    <body>
+        <div class="bar-container">
+            <div class="bar"></div>
+        </div>
+        <button class="button" onClick="fillBar(2)">Start</button>
+    </body>
+</html>
+
+
+lessons learned:
+ - transition:  [time]s [what property] ;
+ - event has new style and when it should be transitioned to (onClick, ) 
+ - again, css specified by javascript needs to be put inside of quotes
