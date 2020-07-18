@@ -8,15 +8,68 @@
 
         </style>
         <script>
+            var text = ["Figma","Gamma","Alpha","Certa","Beta","Epsilon","Delta"];
+            var numbers = [5, 10, 7, 204, 53, -11, 12, -57, 2];
+            var stringNumbers = ["5", "10", "7", "204", "53", "-11", "12", "-57", "2"]
+
+
             var sort1 = function(){
-                var content1 = document.querySelector(".sort1")
-                content1.innerHTML = "You Clicked Me!"
+                var content1a = document.querySelector(".sort1a");
+                var content1b = document.querySelector(".sort1b");
+                var content1c = document.querySelector(".sort1c");
+                var content1d = document.querySelector(".sort1d");
+
+                var single = text[1];
+                var sortedContent = text.sort();
+                var reverseContent = sortedContent.reverse().join(", ");
+                
+                var singleSplit = single.toLowerCase().split("").sort().join(", ");
+
+                content1a.innerHTML = "Sorted, reversed, and formatted: " + reverseContent;
+                console.log(single);
+                content1b.innerHTML = "Single Split: " + singleSplit;
+                
+                content1c.innerHTML = "Single sorted: " ;
+                content1d.innerHTML = "Playing: " + single;
+
+                //..how would I sort, but keep upper or lower casing?
+
             }
             var sort2 = function(){
-                
+                var content2a = document.querySelector(".sort2a");
+                var content2b = document.querySelector(".sort2b");
+                var content2c = document.querySelector(".sort2c");
+                var content2d = document.querySelector(".sort2d");
+
+
+                var sortedContent = numbers.sort(function(a,b){
+                    if(a<b) return -1;
+                    if (a>b) return 1;
+                    if (a === b) return 0;
+                });
+                var formattedContent = sortedContent.join(", ");
+                var reverseContent = formattedContent.reverse();
+
+                content2a.innerHTML = "Sorted In-Order: " + sortedContent;
+                content2b.innerHTML = "Sorted and Formatted: " + formattedContent;
+                content2c.innerHTML = "ReversedContent: " + reverseContent;
+                content2d.innerHTML = "Playing: ";
             }
             var sort3 = function(){
-                
+                var content3a = document.querySelector(".sort3a");
+                var content3b = document.querySelector(".sort3b");
+                var content3c = document.querySelector(".sort3c");
+                var content3d = document.querySelector(".sort3d");
+
+
+                var sortedContent = text.sort();
+                var formattedContent = sortedContent.join(", ");
+                var reverseContent = formattedContent.reverse();
+
+                content3a.innerHTML = "Sorted In-Order: " + sortedContent;
+                content3b.innerHTML = "Sorted and Formatted: " + formattedContent;
+                content3c.innerHTML = "ReversedContent: " + reverseContent;
+                content3d.innerHTML = "Playing: ";
             }
         </script>
     </head>
@@ -24,18 +77,27 @@
         <div>
             <h2>Sort 1</h2>
             <p>What text do you want to sort?</p>
-            <p class="sort1"></p>
+            <p class="sort1a"></p>
+            <p class="sort1b"></p>
+            <p class="sort1c"></p>
+            <p class="sort1d"></p>
             <button onclick="sort1()">Click Me!</button>
         </div>
         <div>
             <h2>Sort 2</h2>
             <p>what values do you want to sort?</p>
-            <p class="sort2"></p>
-            <button onclick="sort2()">Click Me!</button>
+            <p class="sort2a"></p>
+            <p class="sort2b"></p>
+            <p class="sort2c"></p>
+            <p class="sort2d"></p>
+\            <button onclick="sort2()">Click Me!</button>
         </div>
         <div>
             <h2>Sort 3</h2>
-            <p class="sort3"></p>
+            <p class="sort3a"></p>
+            <p class="sort3b"></p>
+            <p class="sort3c"></p>
+            <p class="sort3d"></p>
             <button onclick="sort3()">Click Me!</button>
         </div>
     </body>

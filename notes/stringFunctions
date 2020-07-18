@@ -19,4 +19,4 @@ Useful:
 
 Converting:
 1. Split            var newArray = str.split("");  -->  need to specify on what character to split at!!! wil remove that character and return array with inbetween things, including comas and spaces.  so, most of the time we will want (" ") is a sentence, or (",") if sord separated by a comma
-2. concat           var phrase = arr.concat()  whatever we put inbetween the () is what will go between the chaacters.  so typically will want (" ")
+2. join           var phrase = arr.join()  whatever we put inbetween the () is what will go between the chaacters.  so typically will want (" ")
