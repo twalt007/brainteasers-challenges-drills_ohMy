@@ -9,7 +9,7 @@
         </style>
         <script>
             var text = ["Figma","Gamma","Alpha","Certa","Beta","Epsilon","Delta"];
-            var numbers = [5, 10, 7, 204, 53, -11, 12, -57, 2];
+            var numbers = [5, 10, 7, 7, 204, 53, -11, 12, -57, 2];
             var stringNumbers = ["5", "10", "7", "204", "53", "-11", "12", "-57", "2"]
 
 
@@ -26,8 +26,11 @@
                 var singleSplit = single.toLowerCase().split("").sort().join(", ");
 
                 content1a.innerHTML = "Sorted, reversed, and formatted: " + reverseContent;
-                console.log(single);
                 content1b.innerHTML = "Single Split: " + singleSplit;
+
+                var sortWithCapitals = function (single){
+                    var map = 
+                }
                 
                 content1c.innerHTML = "Single sorted: " ;
                 content1d.innerHTML = "Playing: " + single;
@@ -42,18 +45,17 @@
                 var content2d = document.querySelector(".sort2d");
 
 
-                var sortedContent = numbers.sort(function(a,b){
-                    if(a<b) return -1;
-                    if (a>b) return 1;
-                    if (a === b) return 0;
-                });
-                var formattedContent = sortedContent.join(", ");
-                var reverseContent = formattedContent.reverse();
+                var sortedContent = numbers.sort((a,b) => a-b);
 
-                content2a.innerHTML = "Sorted In-Order: " + sortedContent;
-                content2b.innerHTML = "Sorted and Formatted: " + formattedContent;
-                content2c.innerHTML = "ReversedContent: " + reverseContent;
-                content2d.innerHTML = "Playing: ";
+                var reverseContent = sortedContent.reverse().join(", ");
+                var reverseSort = numbers.sort((a,b) => b-a);
+                var textNumSort = stringNumbers.sort((a,b)=> a-b);
+
+                content2a.innerHTML = "Sorted, reversed, formatted: " + reverseContent;
+                content2b.innerHTML = "Sorted and Formatted: " + reverseSort;
+                content2c.innerHTML = "String Numbers Sorted: " + textNumSort;
+                console.log("stringNumbers: ", textNumSort);
+                // content2d.innerHTML = "Playing: ";
             }
             var sort3 = function(){
                 var content3a = document.querySelector(".sort3a");
@@ -90,7 +92,7 @@
             <p class="sort2b"></p>
             <p class="sort2c"></p>
             <p class="sort2d"></p>
-\            <button onclick="sort2()">Click Me!</button>
+            <button onclick="sort2()">Click Me!</button>
         </div>
         <div>
             <h2>Sort 3</h2>
@@ -108,3 +110,22 @@
 >>>>>>>> Lessons Learned
 1. querySelector needs to reflect if a class, id, etc
 2. innerHTML does not have parenthesis after it; must assign value with an equal sign
+3. numeric soft function improved :
+    a. FROM:
+        var sortedContent = numbers.sort(function(a,b){
+            if(a<b) {
+                return -1;
+            }
+            if (a>b) {
+                return 1;
+            }
+            if (a === b) {
+                return 0;
+            }
+        });
+    b. TO:
+        var sortedContent = numbers.sort((a,b) => a-b);
+        or        
+        var sortedContent = numbers.sort(function (a,b) {
+            return a-b
+        });
