@@ -28,11 +28,14 @@
                 content1a.innerHTML = "Sorted, reversed, and formatted: " + reverseContent;
                 content1b.innerHTML = "Single Split: " + singleSplit;
 
-                var sortWithCapitals = function (single){
-                    var map = 
-                }
+                var sortWithCapitals = single.split("").sort(function (a,b){
+                    // transform the current 'a into lowercase and compare to lowercase b' 
+                    var nuetralA = a.toLowerCase();
+                    var nuetralB = b.toLowerCase();
+                    nuetralA-nuetralB;
+                });
                 
-                content1c.innerHTML = "Single sorted: " ;
+                content1c.innerHTML = "Capitals Sorted: " + sortWithCapitals;
                 content1d.innerHTML = "Playing: " + single;
 
                 //..how would I sort, but keep upper or lower casing?
