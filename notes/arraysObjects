@@ -40,4 +40,15 @@ var exObj = {
     b. if ('prop' in Obj){do something}                         speed=3
     c. if (Obj.hasOwnProperty('prop')){do Something}            speed=4
 
+
+
 https://andrew.hedges.name/experiments/in/
+
+/////Setting
+1. object[key] = value;
+
+
+/////Map object
+*. If used new Map object, then:
+    a. namedMap.get(value) = returns thing or undefined;
+    b. namedMap.set('key','value');
