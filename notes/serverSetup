@@ -14,4 +14,14 @@
         iii. https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded/51844327
         iv. app.use(express.urlencoded({extended: false}));
     b. Enable to understand url requests
-        i. static -->   
+        i. static --> path.resolve --> current directory + folders in order until reach base from which files accessed
+            - app.use(express.static(path.resolve(__dirname, 'client','dist')))  ;
+    c. Direct to routes folder
+3. Serve main entry file 
+    a. app.get --> all, function for request + response to send File index.html pg from dist directory
+        - app.get('*',function(res,req){see below})
+        - res.sendFile(path.resolve(__dirname,'client','dist','index.html'));
+4. Add in error handler last  --> app.use
+5. Turn live -->  app.listen, specify port, console.log to verify
+    
+
