@@ -1,0 +1,17 @@
+1. require express, path
+2. define used variables:
+    a. Port (usually allow proccess.env.PORT OR [defined])
+    b. Make global ApiError middleware
+    c. routes folder
+    d. defaultErrorHandler
+
+1. Make express server:  app = express()
+2. Add middleware - app.use: --> 
+    a. Enable express to read content coming from body  (PUT/POST only, GET/DELETE don't need)
+        i. bodyParser --> express.json() for json object
+        ii. urlEncoded --> for arrays/strings
+            - extended: false in order to allow for json to work
+        iii. https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded/51844327
+        iv. app.use(express.urlencoded({extended: false}));
+    b. Enable to understand url requests
+        i. static -->   
