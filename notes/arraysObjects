@@ -29,7 +29,7 @@ var exObj = {
 // Objects:
 // 1. exObj["key1"] --> use this when there are periods or numbers
 // 2. exObj.key2
-// 3. exObj["key4"].key4_3[3].item4_4_3 = ["item4_4_1", "item4_4_2", 443]
+// 3. exObj["key4"].key4_3[3].item4_4_3 = ["item4_4_1", "item4_4_2", 443]  ==> 
 // 4. exObj["key4"]["key4_3"[3]].item4_4_3 = ["item4_4_1", "item4_4_2", 443]
 // 5. if using a variable to reference, then do not need quotes inside brackets.  ex:  exObj["key4"][varKey4_3[3]].item4_4_3
 
@@ -44,11 +44,22 @@ var exObj = {
 
 https://andrew.hedges.name/experiments/in/
 
-/////Setting
-1. object[key] = value;
+/////Setting   **" " 
+1. object['key'] = 'value';
+2. object[variableKey] = 'value';
+3. object.key = 'value';
+4. object.key = variableValue;
 
 
 /////Map object
 *. If used new Map object, then:
     a. namedMap.get(value) = returns thing or undefined;
     b. namedMap.set('key','value');
+
+
+
+
+/////ARRAYS/////
+//Checking for Existence
+1. Array.isArray --> returns true/false
+2. Array.length > 0    (check to see if [])
