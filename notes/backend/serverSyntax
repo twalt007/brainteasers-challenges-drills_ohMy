@@ -1,0 +1,23 @@
+Basic Structure:
+0. require modules
+I. Gather from router:
+ - router.[RESTAPIRequestType]('/url',(req,res)=>{
+    a. collect data from req
+        - const {params} = req.params;
+    b. validation and verification
+        i. if works, return content
+            - res.sendFile(...);
+        ii. error response
+            res.status(HTTP Responses).send('message');
+    c. return to router 
+        i. module.exports = router;
+})
+II. return to router
+ - module.exports = router;
+
+
+Accessing Request Data
+I. URL:
+    a. router.get('/:paramA/:paramB',(req, res)=>{
+        const {paramA, paramB} = req.params;
+    })

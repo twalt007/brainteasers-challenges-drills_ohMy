@@ -23,5 +23,14 @@
         - res.sendFile(path.resolve(__dirname,'client','dist','index.html'));
 4. Add in error handler last  --> app.use
 5. Turn live -->  app.listen, specify port, console.log to verify
+
+6. if using router --> have file structure set up such that each layer has index directing to botom layer
+    a. middle layer:
+     - router.use('/next-chucnk-url', [middleware-if-needed], [required 'module']);
+       module.exports = router;
+    b. last layer:
+     - router.[RESTAPIFunction]('/last-chunk', module)  
+     **can also write as '/:lastUrlChunk' if needed
+     ** '/' is fine if ends there
     
 
