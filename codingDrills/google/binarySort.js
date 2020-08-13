@@ -114,3 +114,8 @@ while (s<e){
         
 
 [1,2,3,3,3,3,3,3,4,5]
+
+
+
+//time = log(n), because halved each time
+//something like maxonly 30 ish time will repeat regardlesof the size
