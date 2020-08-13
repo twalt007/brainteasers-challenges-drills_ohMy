@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Skilled Button Challenge</title>
+        </head>
+        <body>
+            <h1>Choose Your Animal</h1>
+            <ul id='animal-list'>
+                <li><button id='animal'>Dog</button></li>
+                <li><button id='animal'>Cat</button></li>
+                <li><button id='animal'>Sheep</button></li>
+                <li><button id='animal'>Goat</button></li>
+                <li><button id='animal'>Horse</button></li>
+                <li><button id='animal'>Pig</button></li>
+                <li><button id='animal'>Cow</button></li>
+            </ul>
+            <img id='animal-img' alt='animal-name' src='./imgs/animals.jpeg'>
+        </body>
+        <script>
+            //using DOM manipulation and javascript, make it so that the appropriate image renders when clicked
+            var list = document.querySelector('#animal-list');
+            var button = document.querySelector('#animal');
+            var img = document.querySelector('#animal-img');
+
+            list.addEventListener('click',changeImage);
+
+            function changeImage(event){
+                var animalName = event.target.innerText.toLowercase();
+                img.alt = animalName;
+                img.src='./imgs/'+anmialName+'.jpeg'
+            };
+            //add in error handling for if there is no image
+
+            //have page load with dog image as default
+        </script>
+    </html>
+
+
+    <!-- using DOM manipulation and javascript, make it so that the appropriate image renders when clicked -->
+<!-- 
+ - add classes/ids in dom
+ - with selectors, grab what I need from the dom
+ - add onClick to ul
+ - use event.target to grab the innerText; event.preventDefault??
+ - splice this inner text into the image's img.alt and img.src
+      - manipulate alt and src so that can simply insert a variable - string concat
+      - manipulated grabbed inner text so that all lowercase
+
+
+ -->
