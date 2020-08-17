@@ -7,29 +7,33 @@
         </head>
         <body>
             <h1>Choose Your Animal</h1>
-            <ul id='animal-list'>
-                <li><button id='animal'>Dog</button></li>
-                <li><button id='animal'>Cat</button></li>
-                <li><button id='animal'>Sheep</button></li>
-                <li><button id='animal'>Goat</button></li>
-                <li><button id='animal'>Horse</button></li>
-                <li><button id='animal'>Pig</button></li>
-                <li><button id='animal'>Cow</button></li>
+            <ul class='animal-list'>
+                <li><button class='animal'>Dog</button></li>
+                <li><button class='animal'>Cat</button></li>
+                <li><button class='animal'>Sheep</button></li>
+                <li><button class='animal'>Goat</button></li>
+                <li><button class='animal'>Horse</button></li>
+                <li><button class='animal'>Pig</button></li>
+                <li><button class='animal'>Cow</button></li>
             </ul>
-            <img id='animal-img' alt='animal-name' src='./imgs/animals.jpeg'>
+            <img class='animal-img' alt='animal-name' src='./imgs/animals.jpeg'>
         </body>
         <script>
             //using DOM manipulation and javascript, make it so that the appropriate image renders when clicked
-            var list = document.querySelector('#animal-list');
-            var button = document.querySelector('#animal');
-            var img = document.querySelector('#animal-img');
+            var list = document.querySelector('.animal-list');
+            var img = document.querySelector('.animal-img');
 
             list.addEventListener('click',changeImage);
 
             function changeImage(event){
-                var animalName = event.target.innerText.toLowercase();
+                const animalButton = event.target
+
+                console.log("animal button class list", animalButton.classList.contains('animal'), "animalButton type", animalButton.type);
+                var animalName = animalButton.innerText.toLowerCase();
                 img.alt = animalName;
-                img.src='./imgs/'+anmialName+'.jpeg'
+                img.src='./imgs/'+animalName+'.jpg'
+
+                //want to explore includes()  vs contains(), ways to identify an item based upon id, class, how to see if we have the image or not to throw an error
             };
             //add in error handling for if there is no image
 
