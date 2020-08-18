@@ -8,7 +8,7 @@
 
         </style>
         <script>
-            var text = ["Figma","Gamma","Alpha","Certa","Beta","Epsilon","Delta"];
+            var text = ["Figma","GAmma","Alpha","Certa","bEta","Epsilon","Delta"];
             var numbers = [5, 10, 7, 7, 204, 53, -11, 12, -57, 2];
             var stringNumbers = ["5", "10", "7", "204", "53", "-11", "12", "-57", "2"]
 
@@ -20,24 +20,31 @@
                 var content1d = document.querySelector(".sort1d");
 
                 var single = text[1];
-                var sortedContent = text.sort();
+                var sortedContent = text.sort(function (a,b){
+                    var nuetralA = a.toLowerCase().charCodeAt(0);
+                    var nuetralB = b.toLowerCase().charCodeAt(0);
+                    return nuetralA-nuetralB});
                 var reverseContent = sortedContent.reverse().join(", ");
                 
                 var singleSplit = single.toLowerCase().split("").sort().join(", ");
 
-                content1a.innerHTML = "Sorted, reversed, and formatted: " + reverseContent;
+                content1a.innerHTML = "Sorted, reversed, and formatted: " + sortedContent;
                 content1b.innerHTML = "Single Split: " + singleSplit;
 
                 var sortWithCapitals = single.split("").sort(function (a,b){
-                    var nuetralA = a.toLowerCase();
-                    var nuetralB = b.toLowerCase();
-                    nuetralA-nuetralB;
+                    var nuetralA = a.toLowerCase().charCodeAt(0);
+                    var nuetralB = b.toLowerCase().charCodeAt(0);
+                    return nuetralA-nuetralB;
                 });
+
+                var sortBySecond = text.sort((a,b) => {
+                    var aSecondLetterValue = a.toLowerCase().charCodeAt(1);
+                    var bSecondLetterValue = b.toLowerCase().charCodeAt(1);
+                    return aSecondLetterValue - bSecondLetterValue;
+                })
                 
                 content1c.innerHTML = "Capitals Sorted: " + sortWithCapitals;
-                content1d.innerHTML = "Playing: " + single;
-
-                //..how would I sort, but keep upper or lower casing?
+                content1d.innerHTML = "Sorted based on second letter: " + sortBySecond;
 
             }
             var sort2 = function(){
@@ -53,27 +60,22 @@
                 var reverseSort = numbers.sort((a,b) => b-a);
                 var textNumSort = stringNumbers.sort((a,b)=> a-b);
 
-                content2a.innerHTML = "Sorted, reversed, formatted: " + reverseContent;
+                content2a.innerText = "Sorted, reversed, formatted: " + reverseContent;
                 content2b.innerHTML = "Sorted and Formatted: " + reverseSort;
                 content2c.innerHTML = "String Numbers Sorted: " + textNumSort;
-                console.log("stringNumbers: ", textNumSort);
-                // content2d.innerHTML = "Playing: ";
+                //content2d.innerHTML = "Sorted basedon second letter: ";
             }
-            var sort3 = function(){
-                var content3a = document.querySelector(".sort3a");
-                var content3b = document.querySelector(".sort3b");
-                var content3c = document.querySelector(".sort3c");
-                var content3d = document.querySelector(".sort3d");
+            var filter3 = function(){
+                var content3a = document.querySelector(".filter3a");
+                var content3b = document.querySelector(".filter3b");
+                var content3c = document.querySelector(".filter3c");
+                var content3d = document.querySelector(".filter3d");
 
 
-                var sortedContent = text.sort();
-                var formattedContent = sortedContent.join(", ");
-                var reverseContent = formattedContent.reverse();
-
-                content3a.innerHTML = "Sorted In-Order: " + sortedContent;
+                content3a.innerText = "filter less than 20: " + sortedContent;
                 content3b.innerHTML = "Sorted and Formatted: " + formattedContent;
                 content3c.innerHTML = "ReversedContent: " + reverseContent;
-                content3d.innerHTML = "Playing: ";
+                content3d.innerHTML = "Sorted based on second letter: ";
             }
         </script>
     </head>
@@ -97,12 +99,12 @@
             <button onclick="sort2()">Click Me!</button>
         </div>
         <div>
-            <h2>Sort 3</h2>
-            <p class="sort3a"></p>
-            <p class="sort3b"></p>
-            <p class="sort3c"></p>
-            <p class="sort3d"></p>
-            <button onclick="sort3()">Click Me!</button>
+            <h2>Filter</h2>
+            <p class="filter3a"></p>
+            <p class="filter3b"></p>
+            <p class="filter3c"></p>
+            <p class="filter3d"></p>
+            <button onclick="filter3()">Click Me!</button>
         </div>
     </body>
 </html>
@@ -112,7 +114,8 @@
 >>>>>>>> Lessons Learned
 1. querySelector needs to reflect if a class, id, etc
 2. innerHTML does not have parenthesis after it; must assign value with an equal sign
-3. numeric soft function improved :
+3. when using specific character to sort words, need to use charCodeAt(i) in order to have function still work
+4. numeric soft function improved :
     a. FROM:
         var sortedContent = numbers.sort(function(a,b){
             if(a<b) {
