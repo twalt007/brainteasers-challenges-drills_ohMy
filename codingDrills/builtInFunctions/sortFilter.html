@@ -71,11 +71,28 @@
                 var content3c = document.querySelector(".filter3c");
                 var content3d = document.querySelector(".filter3d");
 
+                var filteredNumbers = numbers.filter(function(a){
+                    if (a === 5) return true
+                    else return a >= 20
+                });
+                var filteredString = text.filter(function(a){
+                    var sortResult = a.toLowerCase().indexOf("e");
+                    console.log("sortResult", sortResult);
+                    
+                    if (sortResult>=0) return true;  
+                    //else return false;  
+                });
+                var sortedFilteredContent = filteredString.sort((a,b)=> {
+                    var formatA = a.toLowerCase().charCodeAt(0);
+                    var formatB = b.toLowerCase().charCodeAt(0);
+                    return formatA - formatB
 
-                content3a.innerText = "filter less than 20: " + sortedContent;
-                content3b.innerHTML = "Sorted and Formatted: " + formattedContent;
-                content3c.innerHTML = "ReversedContent: " + reverseContent;
-                content3d.innerHTML = "Sorted based on second letter: ";
+                })
+
+                content3a.innerText = "Remove less than 20: " + filteredNumbers;
+                content3b.innerHTML = "return only words with 'e' " + filteredString;
+                content3c.innerHTML = "Sort filtered words " + sortedFilteredContent;
+                // content3d.innerHTML = "Sorted based on second letter: ";
             }
         </script>
     </head>
