@@ -1,3 +1,5 @@
+
+
 sum(2,3); // => 5
 sum(2)(3); // => 5
 a (3)
@@ -40,6 +42,16 @@ const createCounter = () => {
   };
 };
 
+sum(2,3);
+sum(2)(3);
+
+type ReturnType = number | (num3: number) => number
+const sum = (num1: number, num2?: number): ReturnType => {
+	if (num2 === undefined) {
+		return (num3) => num1 + num3;
+};
+return num1 + num2;
+};
 
 		
 

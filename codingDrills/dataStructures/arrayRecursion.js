@@ -126,6 +126,83 @@ return checkValue(arr);
 };
 
 
+const doMath = (arr) => {
+	for (let i=0; i<arr.length; i++){
+		let depth = 1
+		while (Array.isArray(arr[1]){
+			depth++	
+		depth * sum
+		};
+		addition
+	};
+
+	return sum
+};
+
+
+loop through values
+	check if array
+		counterDepth = 1
+		if not, leave it
+		if array, 
+			increment counter
+			repeat
+	Add/reduce * counter
+			
+[2,3,4,[1,[1],[[[]]], [1,1]]
+
+[1,1,[1], 1] => 5
+const doMath = (arr, layer = 1) => {
+	let sum = 0;
+	for (i=0; i<arr.length; i++){
+		if (Array.isArray(arr[i])) {
+			sum += doMath(arr[i], layer + 1);
+ 			continue;
+ 		};
+		sum = sum + arr[i];
+	};
+	return sum * layer;
+};
+ 				{key: 9}	  2
+const reduceMethod = (accum, current, index) => {
+	accum[current] = Math.random() * index;
+	return accum;
+};
+
+12345
+
+
+const value = [‘key’, ‘key1’].reduce(reduceMethod, {}); // 3
+
+arr  [2,3,4,[1,1,[1,1]]
+set	[2,3,4,[1,1,[1,1]]
+i	3
+set.length = 4
+sum = 9
+depth  1
+number 
+multNum
+
+set	[1,1,[1,1]]
+i	2
+set.length = 3
+sum = 2
+depth  1
+number 
+multNum
+
+set	[1,1]
+i	2
+set.length = 2
+sum = 2
+depth  1
+number 
+multNum
+
+
+
+
+
 
 array.reduce((accum, current, index) => {}, initalValue);
 
