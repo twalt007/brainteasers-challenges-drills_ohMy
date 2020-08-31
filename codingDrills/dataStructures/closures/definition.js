@@ -12,6 +12,28 @@ var add (x,y){
 };
 
 //Example:
-var outer (){
-
+var outer =()=>{
+    var arg = 'closure';
+    function inner () {
+        console.log("This is an ", arg, " because a varible outside this current function but contained within the inner function's environment scope (as deliminated by the outer function, or in other scenarios, the global object) is being referenced.");
+    }
+    return inner;
 };
+var closure = outer();
+closure();
+//inner is returned before being run.  and yet, it ca still access the arg variable.
+//this is becaue inner can still maintain access to the lexical scope in which it was declared
+
+
+//Example:
+var makeAdder = (outer) => {
+    return function (inner) {
+        return outer + inner;
+    };
+}
+
+var addTwo = makeAdder(2);
+var addThree = makeAdder(3);
+
+addTwo(5);      // ==> 7        outer = 2, inner = 5    ==> addTwo(5) == [makeAdder(2)](5) => [function(inner){return 2 + inner}](5)
+addThree(5)     // ==> 8        outer = 3, inner = 5
