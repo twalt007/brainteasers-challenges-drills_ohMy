@@ -2,7 +2,7 @@
 //Basically, a closure gives access to an outter funciton's scope from an inner function.
 
 //Example: 
-var add (x,y){
+var add = (x,y) => {
     if (!y){
         return function(z){
             return x+z;
@@ -10,6 +10,9 @@ var add (x,y){
     };
     return x+y;
 };
+
+add(2,3);
+add(2)(3);
 
 //Example:
 var outer =()=>{
@@ -37,3 +40,9 @@ var addThree = makeAdder(3);
 
 addTwo(5);      // ==> 7        outer = 2, inner = 5    ==> addTwo(5) == [makeAdder(2)](5) => [function(inner){return 2 + inner}](5)
 addThree(5)     // ==> 8        outer = 3, inner = 5
+
+
+// 10 minutes to review functions
+// look up 2 new methods
+// review mod 1 dom manipulation; look at commetns example especially
+// review closures problem and definition on one other example

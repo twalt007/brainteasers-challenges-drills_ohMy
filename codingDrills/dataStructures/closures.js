@@ -27,13 +27,6 @@ counter.count() = 3;
 
 const counter = new Counter();
 
-const creatCounter() {
-	let counter = 0;
-	return {
-		count: function(){return counter},
-		increment: function(){counter++}
-	}
-};
 const createCounter = () => {
   let count = 0;
   return {
