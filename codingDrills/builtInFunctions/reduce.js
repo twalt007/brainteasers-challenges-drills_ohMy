@@ -53,7 +53,8 @@ var fillObject = (accum,curr,index)=> {
 var reduceToObject = arr.reduce(fillObject,objectShape);  //must remember to actually call the function reduce on the array
 
 
-//return arry of objects that only meet certain criteria
+
+//2. Return arry of objects that only meet certain criteria
 var studentList = [
     {
         house: 'Hufflepuff',
@@ -81,7 +82,7 @@ var onlyHufflepuff = studentList.reduce((accum,curr)=>{
     return accum;
 },[]);
 //errors: need to make sure using strings for object values, parenthesis around curr;
-//does the same thing as map
+//VS Map  (Example )
 var mapHufflepuff = studentList.map((student)=>{
     var returnArrray = [];
     if(student.house === 'Hufflepuff') {returnArrray.push(student)};
@@ -90,5 +91,97 @@ var mapHufflepuff = studentList.map((student)=>{
 //map returns an array with 5 values - empty array for when the student fails a test
 
 
-//review map vs forEach vs 
+//3. Group items by criteria
+//like the above, but fleshed out.  
 
+var groupBy = (arr, criteria) => {
+    return arr.reduce((obj,item)=>{
+        var key = typeof criteria === 'function' ? criteria(item) : item[criteria];
+        if (!obj.hasOwnProperty(key)) {  //!obj.key then throws error; first of that doesn't get thhe item pushed to it, though thhe next will.  not sure why  (see bottom for errors.)
+            obj[key] = [];
+        }
+        obj[key].push(item);
+        return obj;
+    },{})
+}
+
+//higher level function that we can apply to any array with any criteria we want; returns an object with our items sorted as desired
+//var key:
+/////// test to see the type of criteria passed, so that we know how to apply it
+/////// typeof returns a string, we want to know how to 'call' the function.  
+/////// if it is self-built, we will need to pass item into it  --> criteria(item).  
+///////         example:  groupBy([3.1, 2.4, 5.3, 3.2],Math.floor) ==> Math.floor(item) ==> return {3: [3.1, 3.2], 2: [2.4], 5: [5.3]}
+/////// if not, then it is likely a built in function and we need to call it from the obejct --> item[legnth]
+///////         example:  groupBy(['one','two','three'],'length) ==> item[legnth] ==> return {3: ['one','two'], 5: ['three']};
+/////// if
+
+
+
+
+
+//review map vs forEach vs every
+
+
+
+
+
+
+
+
+
+no idea why !obj.key throws such a werid console.error(var groupBy3 = (arr, criteria) => {
+    return arr.reduce((obj,item)=>{
+            console.log('item',item);
+        var key = typeof criteria === 'function' ? criteria(item) : item[criteria];
+            console.log('key',key);
+            console.log('obj[key]',obj.key);
+        if (!obj.key) {  
+            console.log('obj[key]2',obj.key);
+            obj[key] = [];
+            console.log('obj[key]3',obj.key);
+        }
+        obj[key].push(item);
+            console.log('obj[key]4',obj.key);
+            console.log('obj',obj);
+
+        return obj;
+    },{})
+}
+undefined
+groupBy3(['one','two','three','four','five'],'length');
+VM2300:3 item one
+VM2300:5 key 3
+VM2300:6 obj[key] undefined
+VM2300:8 obj[key]2 undefined
+VM2300:10 obj[key]3 undefined
+VM2300:13 obj[key]4 undefined
+VM2300:14 obj {3: Array(1)}
+VM2300:3 item two
+VM2300:5 key 3
+VM2300:6 obj[key] undefined
+VM2300:8 obj[key]2 undefined
+VM2300:10 obj[key]3 undefined
+VM2300:13 obj[key]4 undefined
+VM2300:14 obj {3: Array(1)}
+VM2300:3 item three
+VM2300:5 key 5
+VM2300:6 obj[key] undefined
+VM2300:8 obj[key]2 undefined
+VM2300:10 obj[key]3 undefined
+VM2300:13 obj[key]4 undefined
+VM2300:14 obj {3: Array(1), 5: Array(1)}
+VM2300:3 item four
+VM2300:5 key 4
+VM2300:6 obj[key] undefined
+VM2300:8 obj[key]2 undefined
+VM2300:10 obj[key]3 undefined
+VM2300:13 obj[key]4 undefined
+VM2300:14 obj {3: Array(1), 4: Array(1), 5: Array(1)}
+VM2300:3 item five
+VM2300:5 key 4
+VM2300:6 obj[key] undefined
+VM2300:8 obj[key]2 undefined
+VM2300:10 obj[key]3 undefined
+VM2300:13 obj[key]4 undefined
+VM2300:14 obj {3: Array(1), 4: Array(1), 5: Array(1)}
+{3: Array(1), 4: Array(1), 5: Array(1)});
